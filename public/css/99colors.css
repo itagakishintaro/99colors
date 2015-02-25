@@ -1,0 +1,29 @@
+.area {
+	float: left;
+	margin: 4px;
+	width: 160px;
+	height: 160px;
+	background-color: #ecf0f1;
+	zindex: 0;
+}
+.color {
+	position: absolute;
+	float: left;
+	margin: 4px;
+	width: 152px;
+	height: 152px;
+	border-radius: 4px;
+	box-shadow: 2px 2px 2px;
+	z-index: 1;
+}
+.input {
+	margin: 4px;
+	width: 152px;
+	float: left;
+}
+.sample {
+	margin: 4px 2px;
+	width: 148px;
+	height: 80px;
+	background-color: lightgray;
+}
