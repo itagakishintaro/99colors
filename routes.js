@@ -34,7 +34,7 @@ configRoutes = function(app, server) {
             }
         );
     });
-    app.get('/api/findallnames', function(req, res) {
+    app.get('/api/findAllNames', function(req, res) {
         mongo.find('palettes', {}, {'_id':0, 'name':1}, 
             function(list){
             	var names = list.map(function(element){
@@ -44,8 +44,8 @@ configRoutes = function(app, server) {
             }
         );
     });
-    app.get('/api/findtop10names', function(req, res){
-        mongo.find('palettes', {}, {'_id':0, 'name':1, limit:10, sort:{name: 1}},
+    app.get('/api/findTop10Names', function(req, res){
+        mongo.find('palettes', {}, {'_id':0, 'name':1, limit:10, sort:{rating: -1}},
             function(list){
                 var names = list.map(function(element){
                     return element.name;
@@ -62,17 +62,43 @@ configRoutes = function(app, server) {
 
         mongo.find('palettes', {name: req.params.name}, {}, 
             function(list){
-				if(list.length === 0 || hash_password === list[0].password){
+                if(list.length === 0) { // 初回はTweetCount=0
+                    mongo.update('palettes', 
+                        { name: req.params.name }, 
+                        { name: req.params.name, password: hash_password, rating: 0, palette: colors }, 
+                        { upsert: true }, 
+                        function(result) {
+                            res.send(result);
+                        });
+                } else if(hash_password === list[0].password){ // 2回目以降
 			        mongo.update('palettes', 
 			        	{ name: req.params.name }, 
-			        	{ name: req.params.name, password: hash_password, palette: colors }, 
-			        	{ upsert: true }, 
+			        	{ $set: { palette: colors } }, 
+			        	{}, 
 			        	function(result) {
 				            res.send(result);
 				        });
 			    } else {
 			    	res.send(401, 'Password Error');
 			    } 
+            }
+        );
+    });
+    app.post('/api/updateRating/:name', function(req, res){
+        mongo.find('palettes', { name: req.params.name }, { '_id':0, 'rating':1 }, 
+            function(list){
+                if(list.length !== 0){
+                    var tweetCount = Number(list[0].tweetCount) + 1;
+                    mongo.update('palettes', 
+                        { name: req.params.name }, 
+                        { $inc: { rating: 1 } },
+                        {}, 
+                        function(result) {
+                            res.send(result);
+                        });
+                } else {
+                    res.send(404, 'Not Found: ' + req.params.name );
+                } 
             }
         );
     });

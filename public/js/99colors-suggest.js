@@ -1,7 +1,7 @@
 'use strict';
 
 $(function() {
-    $.getJSON('/api/findallnames', function(json) {
+    $.getJSON('/api/findAllNames', function(json) {
         $("#name").typeahead({
             source: json,
             autoSelect: true

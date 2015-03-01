@@ -24,21 +24,21 @@
 <body>
     <div class="container">
         <h1>
-        	<div class="icon pull-left">
-        		<svg width="39" height="39">
-        			<rect id="icon-1" width="12" height="12" x="0" y="0" />
-        			<rect id="icon-2" width="12" height="12" x="12" y="0" />
-        			<rect id="icon-3" width="12" height="12" x="24" y="0" />
-        			<rect id="icon-4" width="12" height="12" x="0" y="12" />
-        			<rect id="icon-5" width="12" height="12" x="12" y="12" />
-        			<rect id="icon-6" width="12" height="12" x="24" y="12" />
-        			<rect id="icon-7" width="12" height="12" x="0" y="24" />
-        			<rect id="icon-8" width="12" height="12" x="12" y="24" />
-        			<rect id="icon-9" width="12" height="12" x="24" y="24" />
-        		</svg>
-        	</div>
-			99 colors
-		</h1>
+            <div class="icon pull-left">
+                <svg width="39" height="39">
+                    <rect id="icon-1" width="12" height="12" x="0" y="0" />
+                    <rect id="icon-2" width="12" height="12" x="12" y="0" />
+                    <rect id="icon-3" width="12" height="12" x="24" y="0" />
+                    <rect id="icon-4" width="12" height="12" x="0" y="12" />
+                    <rect id="icon-5" width="12" height="12" x="12" y="12" />
+                    <rect id="icon-6" width="12" height="12" x="24" y="12" />
+                    <rect id="icon-7" width="12" height="12" x="0" y="24" />
+                    <rect id="icon-8" width="12" height="12" x="12" y="24" />
+                    <rect id="icon-9" width="12" height="12" x="24" y="24" />
+                </svg>
+            </div>
+            99 colors
+        </h1>
 
         <!-- Message -->
         <p class="message">
@@ -48,31 +48,33 @@
         <hr>
 
         <div>
-	        <span class="label label-default">Usage</span>
-	        <span class="step">1. Create your color palette.</span>
-        	<span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span><span class="step"> 2. Save with name</span>
-        	<span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span><span class="step"> 3. Copy URL with anchor.</span>
-        	<span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span><span class="step"> 4. Share!</span>
-	        </span>
-		</div>
-		<div>Loading don't need password. Check other people's favorite colors. <a id="top10link" role="button" data-toggle="modal" href="#top10modal">Top 10 Palette Names</a></div>
-        
+            <span class="label label-default">Usage</span>
+            <span class="step">1. Create your color palette.</span>
+            <span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span><span class="step"> 2. Save with name</span>
+            <span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span><span class="step"> 3. Copy URL with anchor.</span>
+            <span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span><span class="step"> 4. Share!</span>
+            </span>
+        </div>
+        <div>Loading don't need password. Check other people's favorite colors. <a id="top10link" role="button" data-toggle="modal" href="#top10modal">Top 10 Palette Names</a>
+        </div>
+
         <!-- Top 10 Modal -->
         <div class="modal fade" id="top10modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-          <div class="modal-dialog modal-sm">
-            <div class="modal-content">
-              <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="myModalLabel">Top 10 Palette Names</h4>
-              </div>
-              <div id="top10" class="modal-body">
-                <ul class="list-group"></ul>
-              </div>
+            <div class="modal-dialog modal-sm">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+                        </button>
+                        <h4 class="modal-title" id="myModalLabel">Top 10 Palette Names</h4>
+                    </div>
+                    <div id="top10" class="modal-body">
+                        <ul class="list-group"></ul>
+                    </div>
+                </div>
             </div>
-          </div>
         </div>
         <!-- 
-        * いいねボタンをつける * いいねトップ１０を表示する * google analitics * カラーコードの形式チェック厳格化+ダメなのときはOKで処理しない
+        * top 10 sort * mongo insert * google analitics * カラーコードの形式チェック厳格化+ダメなのときはOKで処理しない
          -->
 
         <br>
@@ -109,6 +111,12 @@
                 <option value="HSLA">HSLA</option>
             </select>
         </div>
+
+        <!-- Tweet -->
+        <a id="tweet" href="https://twitter.com/share" class="twitter-share-button" data-url="http://www.s-ita.net/99colors" data-hashtags="99colors">
+        Tweet
+        </a>
+
         <div class="palette">
         </div>
 
@@ -126,6 +134,7 @@
     <script src="js/99colors-suggest.js"></script>
     <script src="js/99colors-colorcode.js"></script>
     <script src="js/99colors-recommend.js"></script>
+    <script src="js/99colors-twitter.js"></script>
 
 </body>
 
