@@ -148,11 +148,13 @@ function load(name) {
                 $('#' + i).append(createColorbox(color_code));
                 setColorbox($('#' + i + ' .color'), color_code);
             }
+            setTweet();
         })
         .done()
         .fail(function(xhr) {
             fail(xhr)
         });
+
 }
 
 function remove(name, password) {
