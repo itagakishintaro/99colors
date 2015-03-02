@@ -125,7 +125,7 @@ function save(name, password) {
         }
         colors['color-' + i] = color_code;
     }
-    var res = $.post('/api/update/' + name, {
+    var res = $.post('api/update/' + name, {
             password: password,
             colors: colors
         })
@@ -137,7 +137,7 @@ function save(name, password) {
 
 function load(name) {
     clearAll();
-    $.getJSON('/api/find/' + name, function(json) {
+    $.getJSON('api/find/' + name, function(json) {
             for (var i = 1; i <= 99; i++) {
                 var color_code = json[0].palette['color-' + i];
                 if (color_code === '') {
@@ -158,7 +158,7 @@ function load(name) {
 }
 
 function remove(name, password) {
-    $.post('/api/delete/' + name, {
+    $.post('api/delete/' + name, {
         password: password
     }).done(done).fail(function(xhr) {
         fail(xhr)

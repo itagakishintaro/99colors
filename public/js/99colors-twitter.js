@@ -3,8 +3,6 @@
 // http://stackoverflow.com/questions/9215806/how-to-update-the-twitter-share-button-url-with-dynamic-content
 // call this method after load 
 function setTweet(){
-	var name = $.uriAnchor.makeAnchorMap().name;
-
 	// remove any previous clone
 	$('#tweet-area').empty()
 
@@ -53,7 +51,7 @@ twttr.ready(function(twttr) {
 
 function updateRating() {
     var name = $.uriAnchor.makeAnchorMap().name;
-    $.post('/api/updateRating/' + name, null)
+    $.post('api/updateRating/' + name, null)
         .fail(function(xhr) {
             fail(xhr)
         });
