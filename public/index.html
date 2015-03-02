@@ -24,25 +24,27 @@
 <body>
     <div class="container">
         <h1>
-            <div class="icon pull-left">
-                <svg width="39" height="39">
-                    <rect id="icon-1" width="12" height="12" x="0" y="0" />
-                    <rect id="icon-2" width="12" height="12" x="12" y="0" />
-                    <rect id="icon-3" width="12" height="12" x="24" y="0" />
-                    <rect id="icon-4" width="12" height="12" x="0" y="12" />
-                    <rect id="icon-5" width="12" height="12" x="12" y="12" />
-                    <rect id="icon-6" width="12" height="12" x="24" y="12" />
-                    <rect id="icon-7" width="12" height="12" x="0" y="24" />
-                    <rect id="icon-8" width="12" height="12" x="12" y="24" />
-                    <rect id="icon-9" width="12" height="12" x="24" y="24" />
-                </svg>
-            </div>
+            <a href="">
+                <div class="icon pull-left">
+                    <svg width="39" height="39">
+                        <rect id="icon-1" width="12" height="12" x="0" y="0" />
+                        <rect id="icon-2" width="12" height="12" x="12" y="0" />
+                        <rect id="icon-3" width="12" height="12" x="24" y="0" />
+                        <rect id="icon-4" width="12" height="12" x="0" y="12" />
+                        <rect id="icon-5" width="12" height="12" x="12" y="12" />
+                        <rect id="icon-6" width="12" height="12" x="24" y="12" />
+                        <rect id="icon-7" width="12" height="12" x="0" y="24" />
+                        <rect id="icon-8" width="12" height="12" x="12" y="24" />
+                        <rect id="icon-9" width="12" height="12" x="24" y="24" />
+                    </svg>
+                </div>
+            </a>
             99 colors
         </h1>
 
         <!-- Message -->
         <p class="message">
-            Let's share your favorite colors. Not good? Please add issues <a href="https://github.com/itagakishintaro/99colors/issues">here</a>.
+            Let's share your favorite colors. Not good? Please add issues <a href="https://github.com/itagakishintaro/99colors/issues" target="_blank">here</a>.
         </p>
 
         <hr>
@@ -84,36 +86,43 @@
         </div>
 
         <!-- Input -->
-        <div class="form-inline pull-left">
-            <input type="text" class="form-control typeahead" id="name" placeholder="name" data-provide="typeahead" autocomplete="off">
-            <button id="load" class="btn btn-default">Load</button>
-            <input type="password" class="form-control" id="password" placeholder="blank is OK">
-            <button id="save" class="btn btn-default">Save</button>
+        <div class="row">
+            <div class="col-md-12">
+            <div class="form-inline pull-left">
+                <input type="text" class="form-control typeahead" id="name" placeholder="name" data-provide="typeahead" autocomplete="off">
+                <button id="load" class="btn btn-default">Load</button>
+                <input type="password" class="form-control" id="password" placeholder="blank is OK">
+                <button id="save" class="btn btn-default">Save</button>
+            </div>
+            <div class="pull-right">
+                <button id="delete" class="btn btn-default">DELETE</button>
+            </div>
+            </div>
         </div>
-        <div class="pull-right">
-            <button id="delete" class="btn btn-default">DELETE</button>
-        </div>
-
-        <br>
-        <br>
 
         <hr>
 
-        <!-- Palette -->
-        <div class="format form-inline">
-            <div class="instruction pull-left">Click Color box. You get color code in your clipboard as</div>
-            <select id="format" class="form-control input-sm">
-                <option value="HEX">HEX</option>
-                <option value="RGBA">RGBA</option>
-                <option value="HSLA">HSLA</option>
-            </select>
+            <div class="format form-inline">
+                <div class="instruction pull-left">Click Color box. You get color code in your clipboard as</div>
+                <select id="format" class="form-control input-sm pull-left">
+                    <option value="HEX">HEX</option>
+                    <option value="RGBA">RGBA</option>
+                    <option value="HSLA">HSLA</option>
+                </select>
+            </div>
+        
+        <br>
+        <br>
+        <!-- Tweet -->
+        <div class="row">
+            <div class="col-md-12">
+                <a href="https://twitter.com/share" class="twitter-share-button-template" data-url="http://www.s-ita.net/99colors" data-hashtags="99colors" style="display:none;">Tweet</a>
+                <div id="tweet-area"></div>
+            </div>
         </div>
 
-        <!-- Tweet -->
-        <a href="https://twitter.com/share" class="twitter-share-button-template" data-url="http://www.s-ita.net/99colors" data-hashtags="99colors" style="display:none;">Tweet</a>
-        <div id="tweet-area"></div>
-        <div class="palette">
-        </div>
+        <!-- Palette -->
+        <div class="palette"></div>
 
     </div>
 
